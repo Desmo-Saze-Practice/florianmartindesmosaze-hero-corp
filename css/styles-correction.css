@@ -1,0 +1,187 @@
+/*
+gris foncé : #d3d3d3
+gris clair : #eeeeee
+bordeaux: #921010
+*/
+
+/* Lorque l'on veut définir des règles CSS devant s'appliquer à l'ensemble de la page web, on peut les définir à l'intérieur d'un sélecteur body, pas besoin d'utiliser de classe pour cela */
+
+body {
+    font-family: sans-serif;
+}
+
+/* A partir de maintenant on n'utilise plus les balise en tant que sélecteur mais uniquement des classes, cette classe-ci sera utile pour la balise body entre autre */
+
+.bg-grey {
+    background-color: #d3d3d3;
+}
+
+.bg-grey-light {
+    background-color: #eeeeee;
+}
+
+.page {
+    background-color: #fff;
+    border: solid 1px #000;
+    /* Ici au lieu d'utiliser une taille fixe, je précise que la largeur maximum sera 800px, si jamais l'écran est plus petit que 800px alors le block s'adaptera à la taille de la fenêtre */
+    max-width: 800px;
+    /* 
+    Haut Droite Bas Gauche 
+    Si je veux spécifier la même valeur pour les 4 côté : je peux n'indiquer qu'une seule fois la valeur
+    Si je veux spécifier la même valeur pour les extrimté des axes verticaux et horizontaux je peux ne préciser que 2 valeurs
+    */
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.main-logo {
+    display: block;
+    /* Lorsque l'on travail avec une image, on a pas besoin de spécifier sa taille, le navigateur va determiner lui-même sa taille. En clair les informations sont contenu dans le fichier image */
+    /* Du coup on peut utiliser les marges automatiques */
+    margin: 0 auto;
+}
+
+.main-title {
+    /*
+    Lorsque l'on défini une taille de police, on utilise jamais les pixels.
+    On utilisera toujours une unité relative.
+    Elle peut-être :
+    - en % (en rapport à l'élément parent)
+    - en rem (en rapport à l'élément racine (html)
+    - en em (dans le cas de la taille de la police il est en rapport lui aussi à l'élément parent, dans les autres cas ce sera en rapport à la taille de la police de l'élément courant)
+    */
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    border-top: solid 2px #921010;
+    border-bottom: solid 2px #921010;
+    margin: 1.2rem 0;
+    padding: 1rem 0;
+}
+
+.label {
+    color: #fff;
+    background-color: black;
+    font-size: 1rem;
+    /* afin de caler la taille des marges interne de notre label, on utilise l'unité "em" elle se base sur la taille de police de l'élément courant */
+    padding: 0.5em;
+}
+
+.content {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.secondary-logo {
+    display: block;
+    /* Ici l'image d'origine est bien trop grosse, donc dans ce cas on peut spécifier une taille différente que la taille de l'image ele-même afin de redimensionné celle-ci. On utilisera toujours que l'une des 2 mesures, soit "width" soit "height". C'est le navigateur qui adaptera la mesure secondaire automatiquement */
+    width: 100px;
+    margin: 1rem auto;
+}
+
+.default-paragraph {
+    line-height: 1.2em;
+    margin-bottom: 1rem;
+}
+
+.notes {
+    padding: 1rem 0;
+    border-top: solid 1px #000;
+    text-align: center;
+    font-size: 0.8rem;
+    font-style: italic;
+    line-height: 1.2em;
+}
+
+.block-title {
+    text-align: center;
+    color: #921010;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.hero-corp-text {
+    font-weight: bold;
+}
+
+.oswald {
+    font-family: Oswald, sans-serif;
+}
+
+.actors {
+    margin-top: 1rem;
+}
+
+/* Bonne utilisation du inline-block : sur une série d'élement où l'on est sûre de la hauteur (comme du texte par exemple) */
+.actors li{
+    display: inline-block;
+}
+
+.actors li a {
+    display: block;
+    font-size: 0.9rem;
+    padding: 0.3em 0.8em;
+    margin: 0.3em;
+    text-align: center;
+    color: #921010;
+    text-transform: uppercase;
+    border-radius: 1em;
+    transition: color, background-color 1s;
+}
+
+/*
+Afin de faire réagir nos élément de liste au passage de la souris, Nous allons devoir utiliser les pseudo-classe.
+Une pseudo-classe commence toujours par un ":"
+Il y en a plusieurs, mais celui qui nous intéresse aujourd'hui c'est ":hover"
+*/
+
+.actors li a:hover {
+    color: #eeeeee;
+    background-color: #921010;
+}
+
+/* avec flex notre container pictures joue de le rôle de sergent-chef, i lmet touts le trouffion en rang et bien ordonnées */
+.pictures {
+    margin: 1em;
+    display: flex;
+    /*flex-direction: column-reverse;*/
+    /*flex-wrap: wrap;*/
+    justify-content: space-between;
+    /* ce qui fait la magie de flex c'est surtout la propriété align-items. par défaut elle est en "stretch". Ce qui etire les différents éléments afin de rendre homogène l'ensemble */
+    /* align-items: flex-start; */
+}
+
+.picture {
+    width:25%;
+    border: solid 1px #d3d3d3;
+    padding: 1rem;
+    margin: 0.5rem;
+    text-align:center;
+}
+
+.picture img {
+    display: block;
+    width: 100%;
+}
+
+.picture .block-title{
+    margin-top:1rem;
+}
+
+.picture p{
+    line-height: 1.2em;
+}
+
+.footer {
+    margin-top: 1rem;
+    padding: 1rem 1rem 4rem 1rem;
+    text-align: center;
+}
